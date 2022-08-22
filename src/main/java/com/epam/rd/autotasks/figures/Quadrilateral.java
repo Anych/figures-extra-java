@@ -54,7 +54,24 @@ class Quadrilateral extends Figure {
 
     @Override
     public boolean isTheSame(Figure figure) {
-        return false;
+        Point[] array = {a, b, c, d};
+        int sum = 0;
+        while (true) {
+            for (Point point:array) {
+                if (((Quadrilateral) figure).a.getX() == Math.round(point.getX())) {
+                    sum += 1;
+                } else if (((Quadrilateral) figure).b.getX() == Math.round(point.getX())) {
+                    sum += 1;
+                } else if (((Quadrilateral) figure).c.getX() == Math.round(point.getX())) {
+                    sum += 1;
+                } else if (((Quadrilateral) figure).d.getX() == Math.round(point.getX())) {
+                    sum += 1;
+                }
+            }
+            break;
+        }
+        System.out.println(sum);
+        return sum == 4;
     }
 
 }
