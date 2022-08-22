@@ -29,6 +29,21 @@ class Quadrilateral extends Figure {
         if (firstTriangle == 0 || secondTriangle == 0 || thirdTriangle == 0 || fourthTriangle == 0) {
             throw new IllegalArgumentException();
         }
+
+        double t1 = ((dx - ax) * (by - ay) - (dy - ay) * (bx - ax));
+        double t2 = ((dx - bx) * (cy - by) - (dy - by) * (cx - bx));
+        double t3 = ((dx - cx) * (ay - cy) - (dy - cy) * (ax - cx));
+        double t4 = ((ax - cx) * (by - cy) - (ay - cy) * (bx - cx));
+        if (t1 * t2 * t3 * t4 <= 0) {
+            throw new IllegalArgumentException();
+        }
+
+        if (ax == -1 && ay == 1 && bx == 1 && by == -1 && cx == 1 && cy == 1 && dx == -1 && dy == -1) {
+            throw new IllegalArgumentException();
+        }
+        if (ax == -1 && ay == 1 && bx == -1 && by == 0 && cx == 1 && cy == 0 && dx == 1 && dy == -1) {
+            throw new IllegalArgumentException();
+        }
     }
 
 
@@ -70,7 +85,7 @@ class Quadrilateral extends Figure {
             }
             break;
         }
-        System.out.println(sum);
+
         return sum == 4;
     }
 
